@@ -1,0 +1,174 @@
+Today's Topics
+=====================
+-> Overeview of Python and Its' Application
+-> Python Environment  and Python Fundamentals 
+-> Data Type and Variable
+-> Input and Output 
+-> Operator
+-> Condition 
+
+
+Overeview of Python and Its' Application
+=========================================
+-Python is programing language which is open source (free) 
+-Python is plateform independent (support/works on all operating system)
+				 Linux
+				 Mac
+				 Windows 
+
+-Python is indentation/allignment based programing language 
+			- statement /command/code should be left alligned 
+
+
+Its' Application
+================================
+-Machine Learning
+-AI
+-DataScience / Data Analytics 
+-Automation / web crawler / Web Scaping
+
+-Automation Software Testing
+
+-Web Development : DJango 
+
+-Security/Ethical Hacking
+etc.
+
+
+Python Environment  and Python Fundamentals 
+===============================================
+Version:
+	3.7		Latest 
+	3.6		Stable	Version 
+	3.5
+	...
+	...
+	2.7		Stable	Version 		 
+
+
+Python Coding Editor:
+	-Python Shell /Command Line / Terminal 
+			>>>
+	-Python IDLE/GUI (python editor or notepad)
+			python code should be saved with .py extension 
+
+		
+	-Python Other interpreter, and IDE 
+		-Annoconda  : Spyder 
+		-VSCode
+		-Pycharm
+		-Sublime 
+		etc.
+
+
+Python Fundamentals 
+========================
+#		: single line comment
+'''
+		: multiple line comment
+'''	
+
+"""
+		: multiple line comment 
+"""
+
+
+
+*python does allocate memory automatically 
+	a =111  #int 
+	d ='skjhsjhs'  # string 
+
+
+Data Type and Variable
+=============================
+Variable : is temp. memory where data can be stored 
+correct sytnax:
+	a =1
+	a1 =33
+	a_b =34344
+	x,b = 11,222
+incorrect syntax:
+	a b =11
+	a+b =444
+	1a =43444
+	1 =4344
+
+
+Data Type : is type of container of data /values
+===============
+a	=111		# int 
+
+b 	=34333.3	# float 
+
+c =   'sjhsgss222233z555'  # str		/text 
+c = "skhsjhfgh333"  	  #str
+
+b =  True  / False 		# bool 
+
+
+d =[11,222,333]		# list : collection of multiple values
+				-list is mutable (chanable)
+
+
+c  =(11,22)				# tuple   : collection of multiple values
+				 ->inmutable (unchable) /readonly
+	
+
+d =  {key:value,key:value}	#dict 
+	{1:'one',2:'two',3:'three','a':'alpha'}
+			
+
+d = {'dove','lux','dove'}
+				#set contains unique value, so one dove will remove automatically
+
+
+
+Input and Output 
+======================
+print(msg)		# show result text or data 
+
+print(msg,end='')	# print and don't change the line 
+print(msg,end=',')
+print(msg,end='\t')
+
+
+input('message')		# read data from console / user
+
+
+
+				
+Operator
+==============
+Arithmetic:
+	+
+	-
+	*		2*3	=6
+	**		2**4 	=  16
+	/		85/10	=8.5
+	//		85//10  = 8
+	%		85%10	= 5
+	
+Conditional:
+	>
+	>=
+	<
+	<=
+	==
+	!=
+	in
+	not in
+
+Assignment Operator:
+	=		a=1
+	+=		a+=1	or a=a+1
+	-=
+	*=
+	
+Condition 
+==============
+if condition 
+	
+
+
+	
+
