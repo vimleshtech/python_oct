@@ -1,0 +1,68 @@
+Data Type
+==============
+-int		: a =11
+-float		: a =444.32
+-str		: a ='ssjhs'
+		  a ="shsjfsgh"
+-bool		: a= True / Flase
+
+-list		: d =[111,2,2,3,4,'fff']  #is mutable / changeable 
+-tuple		: d = (111,2,2,3334) # is read only 
+-dict		: d = {'a':"alpha",'b':'beta','c':'ceta'}
+			key:value 
+-set 		: a ={'dove','lux','dove'}
+			#store unique value only
+			#one dove will be removed automatically
+
+Operator 
+==============
+Arithemetic:
+	+
+	-
+	*		2*3 =6
+	**		2**3 = 8	
+	/		85/10  = 8.5
+	//		85//10  =  8
+	%		85%10    = 5
+
+Conditional:
+	>
+	>=
+	<
+	<=
+	==
+	!=
+
+Assignment Operator:
+	=			a= 1
+	+=			a+=10 or a=a+10
+	-=
+	*=
+	
+Logical Operator:
+	and 
+	or 
+		
+Input/Output
+==============
+input() 			# read data from console 
+				# default data type is string 
+
+print(msg)			# print and change line 
+print(msg,end='')	
+
+
+type(var/data)			# show data type 
+int(data)			# convert to int 
+
+
+Condition 	: is decision making statement 
+==============
+-if condition
+-if else condition 
+-if elif elif else... / ladder if else 
+-nested if / if inside if condition 
+
+
+
+
