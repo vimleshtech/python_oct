@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Accenture Analytics</title>
+
+	{% load static %}
+	<!-- stylesheets -->
+	<link href="{% static 'assets/fonts/font-roboto.css' %}" rel="stylesheet">
+	<link href="{% static  'assets/bootstrap/bootstrap4-alpha3.min.css' %}" rel="stylesheet">
+	<link href="{% static  'assets/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+	<link href="{% static  'assets/web-analytics/style.css' %}" rel="stylesheet">
+
+	<!-- scripts -->
+	<script src="{% static  'assets/jquery/jquery-3.1.0.min.js' %}"></script>
+	<script src="{% static  'assets/tether/tether.min.js' %}"></script>
+	<script src="{% static  'assets/bootstrap/bootstrap4-alpha3.min.js' %}"></script>
+	<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<script src="{% static  'assets/web-analytics/real-time.js' %}"></script>
+
+
+	<!-- graph library  -->
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+	<!-- ajax call  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+	<!-- header -->
+	<nav class="navbar navbar-fixed-top" id="header">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div id="sidebar-toggle-button">
+					<i class="fa fa-bars" aria-hidden="true"></i>
+				</div>
+				<div class="brand">
+					<a href="#">
+						<span class="hidden-xs-down m-r-3">Chatbot Analytics </span>
+						
+						<span class="lead"></span>
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</nav>
+
+	<div class="sidebar-toggle" id="sidebar">
+			<ul class="nav nav-sidebar">
+				<li>
+					<a href="#" class="active">
+						<i class="fa fa-clock-o fa-lg fa-fw" aria-hidden="true"></i>
+						<span>URL-1 </span>
+					</a>
+				</li>
+				<li role="separator" class="divider"></li>
+				<li>
+					<a href="#">
+						<i class="fa fa-newspaper-o fa-lg fa-fw" aria-hidden="true"></i>
+						<span>URL-2</span>
+					</a>
+				</li>
+				<li role="separator" class="divider"></li>
+			</ul>
+		</div>
+
+	<!-- /header -->
+
+	<!-- page-content-wrapper -->
+	<div class="page-content-toggle" id="page-content-wrapper">
+
+		    <div style="border: 0px solid green;padding-left: 25px;padding-top: 20px;">
+
+					<p>
+						<div><b> Filters:</b></div>
+						<b>Year :</b>  
+							<select style="width: 120px;" id="year"> 
+							<option value="0"  >Select</option>
+							<option value="2018">2018</option>
+							<option value="2017">2017</option>
+							<option value="2016">2016</option>
+							<option value="2015">2015</option>
+						</select>
+		
+						<b>Country :</b>  <select style="width: 120px;" id="region">  
+								<option value="0">Select</option>
+								<option value="Australia" > Australia</option>
+								<option value="USA"> USA</option>
+								<option value="India">India</option>
+								<option value="France"> France</option>
+							</select>
+		
+		
+                                
+						<b>Primary X-axis :</b>  <select style="width: 150px;" id="x_axis">  
+								<option value="0">Select</option>
+								<option value="PTO"> PTO</option>
+								<option value="Career level">Career level</option>
+								<option value="Cost Center Workforce">Cost Center Workforce</option>
+								<option value="Benefit Policy Identifier"> Benefit Policy Identifier</option>
+																
+                            </select>
+                            
+                            <b>Primary Y-axis :</b>  <select style="width: 150px;"id="y_axis">  
+                                    <option value="0">Select</option>
+                                    <option value="Ranid" > Number of People</option>
+																		                                   
+								</select>
+								
+							<b>Distribute X-axis by :</b>  <select style="width: 150px;"id="z_axis">  
+                                    <option value="0">Select</option>
+									<option value="Gender" > Gender</option>
+									<option value="Org Unit" > Org Unit</option>
+																		                                   
+                                </select>
+		
+								
+							
+		
+							   <input type="submit" value="Show Report" style="background-color: aquamarine;" 
+								onclick="getData()"
+							   /> 
+					</p>
+		<div><b>Other Filters:</b></div>
+		<p>
+				<b>Ethnic Group :</b>  <select style="width: 150px;">  
+						<option value="0">Select</option>
+						<option value="Gender" > Gender</option>
+						<option value="Org Unit" > Org Unit</option>
+																							   
+					</select>
+
+					<b>Tenure :</b>  <select style="width: 150px;">  
+							<option value="0">Select</option>
+							<option value="Gender" > 1 year</option>
+							<option value="Gender" > less than 5 years</option>
+							<option value="Gender" > less than 10 years</option>
+																								   
+						</select>
+		</p>
+				</div>
+
+				<div>
+					<div id="chartContainer1" onclick="getEvent(this)" style="height: 300px; width: 100%;"></div>
+				</div>
+
+
+				<div>
+					<div id="chartContainer2" style="height: 250px; width: 40%;" style="display: none;"></div>
+				</div>
+
+
+
+				<div>
+
+                    
+                    
+	</div>
+	<!-- /page-content-wrapper -->
+
+		<script>
+			
+			window.onload = function () {
+								
+								var chart = new CanvasJS.Chart("chartContainer1", {
+									title:{
+										text: "PTO Utilization Trend"              
+									},
+									data: [              
+									{
+										// Change type to "column" "doughnut", "line", "splineArea", etc.
+										type: "splineArea",
+										dataPoints: [
+											
+											{ label: "India",  y: 10  },
+											{ label: "US", y: 15  },
+											{ label: "UK", y: 25  },
+											
+										]
+									}
+									]
+								});
+				chart.render();
+			}
+
+
+			function getEvent(ctrl){
+
+				//alert(ctrl.id);
+
+
+			}
+                    function getData()
+                    {
+
+						document.getElementById('chartContainer2').style.display="none";
+
+
+						//alert("hi")
+									var year,region,x_axis,y_axis;
+							
+
+									var e = document.getElementById("year");
+									year = e.options[e.selectedIndex].value;
+                            		//alert("yes")
+									e = document.getElementById("region");
+									region = e.options[e.selectedIndex].value;
+									//alert("yes3")
+
+									e = document.getElementById("x_axis");
+									x_axis = e.options[e.selectedIndex].value;
+									//alert("yes2")
+
+									e = document.getElementById("y_axis");
+									y_axis = e.options[e.selectedIndex].value;
+									
+									//alert(year);
+									//alert(region);
+									//alert(year);
+									//alert(region);
+									
+									//?year="+year+"&region="+region/http://127.0.0.1:8080
+										var u ="/login/get_data";
+										//alert(u);
+
+										$.ajax(
+                                        {
+                                            type:"GET",
+											url: u,
+											data:{
+													year: year,
+													region: region,
+													x_axis : x_axis,
+													y_axis : y_axis
+											},           
+                                            success: function( data ) 
+                                            {
+                                                //alert(data);
+												//alert(typeof(data));
+
+												var dlist= data.split(']');
+                                                var out=new Array();
+
+                                                for(var i=0;i<dlist.length-1;i++)
+                                                {
+                                                    var col = dlist[i].split(',');
+                                                    out.push({label:col[0].substring(2,col[0].length-1).trim(),y:parseInt(col[1].trim())});		
+                                                    //alert(col[0].substring(2,col[0].length-1) +","+  col[1]);
+										
+                                                }	
+												//alert(out);
+												
+												//graph 
+												
+                                                var chart = new CanvasJS.Chart("chartContainer1", {
+                                                title:{
+                                                    text: "Chatbot - Chart"              
+                                                },
+                                                data: [              
+                                                {
+                                                        // Change type to "column" "doughnut", "line", "splineArea", etc.
+                                                        type: "doughnut",
+														click: function(e){
+															//alert(  e.dataSeries.type+ ", dataPoint { x:" + e.dataPoint.label + ", y: "+ e.dataPoint.y + " }" );
+															getCascadingReport(e.dataPoint.label);
+
+   														},
+
+                                                        dataPoints: out
+                                                }
+                                            ]
+                                    });
+                                    chart.render();
+
+                                                
+
+											}
+										});
+
+										/*
+										
+                                                
+
+
+                                            }
+                                        });
+										*/
+
+
+						 
+
+                    }
+						
+
+				function getCascadingReport(colname)
+				{
+
+							document.getElementById('chartContainer2').style.display="";
+
+								//alert("hi")
+								var z_axis;
+
+									var year,region,x_axis,y_axis;
+							
+
+									var e = document.getElementById("year");
+									year = e.options[e.selectedIndex].value;
+                            		//alert("yes")
+									e = document.getElementById("region");
+									region = e.options[e.selectedIndex].value;
+									//alert("yes3")
+
+									e = document.getElementById("x_axis");
+									x_axis = e.options[e.selectedIndex].value;
+									//alert("yes2")
+
+									e = document.getElementById("y_axis");
+									y_axis = e.options[e.selectedIndex].value;
+
+
+									e = document.getElementById("z_axis");
+									z_axis = e.options[e.selectedIndex].value;
+
+									//colname
+
+								var u ="/login/get_data_cascade";
+								//alert(z_axis);
+
+								$.ajax(
+								{
+									type:"GET",
+									url: u,
+									data:{
+										year: year,
+										region: region,
+										x_axis : x_axis,
+										y_axis : y_axis,						
+										z_axis : z_axis,
+										parentname : colname
+									},           
+									success: function( data ) 
+									{
+										//alert('hi');
+										//alert(data);
+
+										var dlist= data.split(']');
+										var out=new Array();
+
+										for(var i=0;i<dlist.length-1;i++)
+										{
+											var col = dlist[i].split(',');
+
+											out.push({label:col[0].substring(2,col[0].length-1).trim(),y:parseInt(col[1].trim())});		
+											//alert(col[0].substring(2,col[0].length-1) +","+  col[1]);
+
+										}	
+										//alert(out);
+										
+										//graph 
+										
+										var chart = new CanvasJS.Chart("chartContainer2", {
+										title:{
+											text: "Sub-distribtion of X_ axis"              
+										},
+										data: [              
+										{
+												// Change type to "column" "doughnut", "line", "splineArea", etc.
+												type: "column",
+												dataPoints: out
+										}
+									]
+							});
+							chart.render();
+
+										
+
+									}
+								});
+
+								
+
+				}
+
+        </script>
+        <div>
+                <p>
+                        <a href="/login" >Back to ChatBot</a>
+                      
+                      
+                      </p>
+        </div>
+</body>
+
+</html>
