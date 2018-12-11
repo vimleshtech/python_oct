@@ -1,0 +1,32 @@
+from selenium import webdriver
+o = webdriver.Chrome(r'C:\Users\Tech Vision\Downloads\chromedriver.exe')
+o.get('http://erp.techvisionit.com')
+
+
+o.find_element_by_id('txtUserName').send_keys('chahat')
+o.find_element_by_id('txtPassword').send_keys('djhdgfd')
+
+
+o.find_element_by_id('btnSubmit').click()
+
+s = o.find_element_by_id('ctl00_cpbody_lbladmissionmonth').text
+
+print(s)
+
+
+
+
+
+#o.quit()
+
+'''
+by_id
+by_name
+by_class_name
+by_xpath
+etc.
+'''
+
+
+
+
