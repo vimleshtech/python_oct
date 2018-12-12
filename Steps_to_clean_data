@@ -1,0 +1,34 @@
+Models
+==============
+-Missing value 
+-Outliear 
+-Timeseries - trend / forecast
+
+
+========
+1. 		sales, quantity , profit 
+
+sid    name    marks 
+1	a         89
+2       b	  87
+3      c	65
+4     d		.			71
+4     d		91		
+4     d		.			71
+
+		71
+
+
+2. filter 
+	
+pandas 
+	loc 
+
+
+3.
+	describe()
+		sd 
+
+
+4. train and test 
+	
